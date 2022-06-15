@@ -1,23 +1,26 @@
 class Solution {
     public int trap(int[] a) {
-        int n = a.length;
-        int l[] = new int[n];
-        int r[] = new int[n];
-        l[0]=a[0];
-        r[n-1]=a[n-1];
-        for(int i=1;i<n;i++)
+        int ans = 0;
+        int left = 0;
+        int leftMax=0,rightMax=0;
+        int right = a.length - 1;
+        while(left<right)
         {
-            l[i]=Math.max(a[i],l[i-1]);
+            if(a[left]<=a[right])
+            {
+                if(a[left]>leftMax) leftMax = a[left];
+                else ans+=leftMax-a[left];
+                left++;
+            }
+            else
+            {
+                if(a[right]>rightMax) rightMax = a[right];
+                else ans+=rightMax-a[right];
+                right--;
+            }
+            
+            
         }
-        for(int i=n-2;i>=0;i--)
-        {
-            r[i]=Math.max(a[i],r[i+1]);
-        }
-        int water=0;
-        for(int i=0;i<n;i++)
-        {
-            water=water+Math.abs(Math.min(l[i],r[i])-a[i]);
-        }
-        return water;
+        return ans;
     }
 }
