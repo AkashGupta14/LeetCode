@@ -48,7 +48,7 @@ class Solution{
     static ArrayList<Integer> leaders(int a[], int n){
         ArrayList<Integer> x = new ArrayList<Integer>();
         int largest=Integer.MIN_VALUE;
-        
+        int z[] = new int[n];
         for(int i=n-1;i>=0;i--)
         {
             if(a[i]>=largest)
