@@ -1,5 +1,5 @@
 # Remove duplicate elements from sorted Array
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a sorted array<strong> A[]</strong> of size <strong>N</strong>, delete all the duplicates elements from A[].</span><br>
 <span style="font-size:18px"><strong>Note: </strong>Don't use set or HashMap to solve the problem.</span></p>
