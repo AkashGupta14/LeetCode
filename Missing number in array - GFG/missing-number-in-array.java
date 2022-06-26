@@ -27,17 +27,17 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    int MissingNumber(int a[], int n) {
-        int maxsum=0,sum=0;
-        for(int i=1;i<n+1;i++)
+    int MissingNumber(int nums[], int n) {
+        Arrays.sort(nums);
+        
+        int i=0;
+        for( i=0;i<nums.length;i++)
         {
-            maxsum=maxsum+i;
+            if(nums[i]!=i+1)
+            {
+                return i+1;
+            }
         }
-        for(int i=0;i<a.length;i++)
-        {
-            sum+=a[i];
-        }
-        int res=maxsum-sum;
-        return res;
+        return i+1;
     }
 }
