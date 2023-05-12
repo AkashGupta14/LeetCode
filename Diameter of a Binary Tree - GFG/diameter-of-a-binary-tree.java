@@ -117,21 +117,30 @@ class GfG {
 
 class Solution {
     // Function to return the diameter of a Binary Tree.
+    int ans = 0;
     int diameter(Node root) {
         if(root==null) return 0;
-        int ld = diameter(root.left);
-        int rd = diameter(root.right);
+        // int ld = diameter(root.left);
+        // int rd = diameter(root.right);
         
-        int lh = height(root.left);
-         int rh = height(root.right);
-         int c = lh+rh+1; 
-        return Math.max(c,Math.max(ld,rd));
+        // int lh = height(root.left);
+        //  int rh = height(root.right);
+        //  int c = lh+rh+1; 
+        // return Math.max(c,Math.max(ld,rd));
+        // TC = O[N^2] ; because 2 nested loop of diameter and height q
+        
+        // new approach
+        int ans[] = new int[1];
+        height(root , ans);
+        return ans[0]+1;
+        
     }
-    int height(Node node)
+    int height(Node node , int a[])
     {
         if(node==null) return 0;
-        int lh = height(node.left);
-        int rh = height(node.right);
+        int lh = height(node.left,a);
+        int rh = height(node.right,a);
+        a[0] = Math.max(a[0],lh+rh);
         return Math.max(lh,rh)+1;
     }
 }
