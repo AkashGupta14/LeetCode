@@ -168,6 +168,6 @@ class Solution
 	    p.right =root;}
 	    p = root;
 	    bTODLLUtil(root.right);
-	    
+	    // Inorder method LNR
     }
 }
