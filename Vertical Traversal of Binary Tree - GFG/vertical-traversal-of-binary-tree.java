@@ -116,27 +116,30 @@ class Solution
     static ArrayList <Integer> verticalOrder(Node root)
     {
         // add your code here
-        ArrayList<Integer> ans = new ArrayList<>();
-        Map<Integer , ArrayList<Integer>> map = new TreeMap<>(); // Treemap is sorted key wise 
-        if(root ==null) return ans;
-        Queue<pair> q = new LinkedList<>();
-        q.add(new pair(0, root));
-        while(!q.isEmpty())
+        ArrayList <Integer> ans = new ArrayList <Integer> ();
+        Map<Integer,ArrayList <Integer> > map = new TreeMap<>(); // treemap because we need values from left to
+        // right that is in ascending order
+        // bfs => queue
+        Queue<pair> q1 = new LinkedList<>();
+        if(root==null) return ans;
+        pair p = new pair(0,root);
+        q1.add(p);
+        while(!q1.isEmpty())
         {
-            pair curr = q.poll();
-            int key = curr.hd;
+            pair c = q1.poll();
+            int key = c.hd;
             if(!map.containsKey(key))
             {
-              map.put(key , new ArrayList<Integer>());  
+                map.put(key,new ArrayList<Integer>());
             }
-            map.get(key).add(curr.node.data);
-            if(curr.node.left!=null)
+            map.get(key).add(c.node.data);
+            if(c.node.left!=null)
             {
-                q.add(new pair(key-1,curr.node.left));
+                q1.add(new pair(key-1,c.node.left));
             }
-            if(curr.node.right!=null)
+            if(c.node.right!=null)
             {
-                q.add(new pair(key+1,curr.node.right));
+                q1.add(new pair(key+1,c.node.right));
             }
         }
         for(ArrayList<Integer> e : map.values())
