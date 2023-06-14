@@ -123,21 +123,21 @@ class Node
 class Tree
 {
     //Function to return list containing elements of left view of binary tree.
-    ArrayList<Integer> leftView(Node node) {
-        ArrayList<Integer> ans = new ArrayList<>();
-        int l = 0;
-        leftview(node , l ,ans);
+    ArrayList<Integer> leftView(Node root)
+    {
+      ArrayList<Integer> ans = new ArrayList<>();
+        int level = 0;
+        rightSideView( root ,  level , ans );
         return ans;
     }
-    void leftview(Node node , int l ,ArrayList ans)
+    void keftSideView(Node root , int level ,ArrayList<Integer> ans )
     {
-        if(node==null) return;
-        if(ans.size()==l)
-        {
-            ans.add(node.data);
+        if(root==null) return ;
+        if(ans.size()==level){
+            ans.add(root.data);
         }
-        leftview(node.left , l+1 ,ans);
-        leftview(node.right , l+1 ,ans);
+        rightSideView( root.left ,  level+1 , ans );
+        rightSideView( root.right ,  level+1 , ans );
         
     }
 }
