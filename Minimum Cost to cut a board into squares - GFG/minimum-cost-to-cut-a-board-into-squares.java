@@ -79,8 +79,8 @@ class GFG {
 class Solution {
     public static int minimumCostOfBreaking(int[] x, int[] y,int m,int n) {
         // code here
-        // x is vertical y is horizontal , x1 counts board horizontaly , y1 counts 
-        // board vetically
+        // x is vertical y is horizontal , x1 counts board horizontaly => from side , y1 counts 
+        // board vetically=>from top
         int x1 = 1 , y1= 1 , a = m-1 ,b= n-1 ,cost = 0;
         Arrays.sort(x);
         Arrays.sort(y);
