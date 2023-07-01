@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 //Initial Template for Java
 
 import java.util.*;
@@ -18,7 +18,8 @@ class Driver
             System.out.println(new Reverse().reverseWord(str));
         }
     }
-}// } Driver Code Ends
+}
+// } Driver Code Ends
 
 
 //User function Template for Java
@@ -30,13 +31,14 @@ class Reverse
     // str: input string
     public static String reverseWord(String str)
     {
-        String s="";
-        for(int i=str.length()-1;i>=0;i--)
+        // Reverse the string str
+        char ch;
+        String n="";
+        for(int i = 0;i<str.length();i++)
         {
-            char temp;
-            temp=str.charAt(i);
-            s=s+temp;
+            ch = str.charAt(i);
+            n = ch+n;
         }
-        return s;
+        return n;
     }
 }
