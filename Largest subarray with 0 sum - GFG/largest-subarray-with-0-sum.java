@@ -29,28 +29,23 @@ class MaxLenZeroSumSub
 
 class GfG
 {
-    int maxLen(int a[], int n)
+    int maxLen(int arr[], int n)
     {
         // Your code here
-        Map<Integer,Integer> map  = new HashMap<>();
-        map.put(0,-1);
-        int ans = 0;
-        int sum = 0;
+        Map<Integer,Integer> map = new HashMap<>();
+        int maxi = 0 , sum = 0;
         for(int i = 0;i<n;i++)
         {
-            int x = a[i];
-            sum = sum+x;
-            if(map.containsKey(sum))
+            sum +=arr[i];
+            if(sum==0) maxi = i+1;
+            else if(map.containsKey(sum))
             {
-                int y = map.get(sum);
-                ans = Math.max(ans , i-y);
+                maxi = Math.max(maxi , i-map.get(sum));
             }
-            else
-            {
+            else {
                 map.put(sum,i);
             }
         }
-        return ans;
-        
+        return maxi;
     }
 }
